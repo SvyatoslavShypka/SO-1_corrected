@@ -9,6 +9,7 @@ public class Main {
 	 * @throws FileNotFoundException 
 	 * @throws InterruptedException 
 	 */
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws FileNotFoundException, InterruptedException {
 		CPU cpu = new CPU(new Scheduler(new Generator()));
 		cpu.s.SetAlgorithm(new FCFS(cpu.s.processList));

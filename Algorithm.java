@@ -8,7 +8,7 @@ public abstract class Algorithm {
 		
 		this.list=list;
 	}
-	public abstract Process activeProcess();
+	public abstract Process activeProcess() throws InterruptedException;
 	
 	public abstract void updateList(ArrayList<Process> list);
 }

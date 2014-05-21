@@ -15,7 +15,7 @@ public class Scheduler {
 		gen = g;
 	}
 	
-	public void assignProcess()
+	public void assignProcess() throws InterruptedException
 	{
 		worktime++;
 		checkGenerator();
@@ -43,7 +43,7 @@ public class Scheduler {
 	
 	public void checkGenerator()
 	{
-		if(Generator.isActive() && gen.isReady())
+		while(Generator.isActive() && gen.isReady())
 		{
 			processList.add(gen.getNext());
 		}
