@@ -12,7 +12,6 @@ public class SJFw extends Algorithm{
 		int shortest =0;
 		if(active != null)
 		{
-			
 			if(!active.isDone())return active;
 			else active = null;
 		}
