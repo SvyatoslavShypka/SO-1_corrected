@@ -38,6 +38,7 @@ public class Main {
 			}
 			else if(a.equals("startstoptime")) // Uruchamia cpu na określny czas w milisekundach
 			{
+				System.out.println("Input interval in milliseconds:");
 				int t = f.nextInt();
 				cpu.start();
 				Thread.sleep(t);
@@ -54,7 +55,7 @@ public class Main {
 			}
 			else if(a.equals("switch")) // Zmienia algorytm przydzialający zasoby
 			{
-				System.out.println("Choose: FCFS, ROT, SJF, SJFw");
+				System.out.println("Choose algorithm: FCFS, ROT, SJF, SJFw");
 				a = f.next();
 				if(a.compareTo("FCFS") == 0) cpu.s.SetAlgorithm(new FCFS(cpu.s.processList));
 				else if(a.compareTo("ROT") == 0) cpu.s.SetAlgorithm(new Rot(cpu.s.processList));
@@ -64,7 +65,9 @@ public class Main {
 			}
 			else if(a.equals("load")) // Wczytuje generator z gotowym zestawem procesów
 			{
-				cpu.s  = new Scheduler(new SGenerator(a));
+				System.out.println("Input filename: ");
+				a = f.next();
+				cpu.s  = new Scheduler(new SGenerator("C:\\2\\projects\\SO-1\\src\\" + a));
 				cpu.s.SetAlgorithm(new FCFS(cpu.s.processList));
 			}
 			else if(a.equals("loadgen")) // Wczytuje generator losowych procesów
@@ -87,11 +90,14 @@ public class Main {
 			}
 			else if(a.equals("genconfig")) //Zmienia ustawienia generatora procesów
 			{
+				System.out.println("Input maxProcTime");
 				Generator.maxProcTime = f.nextInt();
+				System.out.println("Input maxTimeNext");
 				Generator.maxTimeNext = f.nextInt();
 			}
 			else if(a.equals("rotconfig")) // Zmienia ustawienia algorymu rotacyjnego
 			{
+				System.out.println("Input deltaTime");
 				Rot.deltaTime = f.nextInt();
 			}
 			menu();
@@ -103,6 +109,6 @@ public class Main {
 	}
 	public static void menu() {
 		System.out.println("choose your options");
-		System.out.println("q, start, stop, switch, load, loadgen, showlist, genconfig, rotconfig");
+		System.out.println("q, start, stop, startstoptime, switch, load, loadgen, showlist, genconfig, rotconfig");
 	}
 }
