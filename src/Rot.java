@@ -26,8 +26,8 @@ public class Rot extends Algorithm {
 
 	@Override
 	public void updateList(ArrayList<Process> list) {
-		this.list = list;
 
 	}
+
 
 }

@@ -1,4 +1,3 @@
-
 public class CPU implements Runnable {
 	public boolean active = false;
 	Scheduler s;

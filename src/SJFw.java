@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class SJFw extends Algorithm{
 
-Process active = null;
+	Process active = null;
 	
 	public SJFw(ArrayList<Process> list){
 		super(list);

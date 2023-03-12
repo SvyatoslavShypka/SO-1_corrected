@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
+
 public class SGenerator extends Generator {
 	Queue<SProcess> list;
 	

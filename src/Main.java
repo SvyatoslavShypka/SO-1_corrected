@@ -6,8 +6,8 @@ public class Main {
 
 	/**
 	 * @param args
-	 * @throws FileNotFoundException 
-	 * @throws InterruptedException 
+	 * @throws FileNotFoundException
+	 * @throws InterruptedException
 	 */
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws FileNotFoundException, InterruptedException {
@@ -15,11 +15,12 @@ public class Main {
 		cpu.s.SetAlgorithm(new FCFS(cpu.s.processList));
 		cpu.active = true;
 		Scanner f = new Scanner(System.in);
+		menu();
 		String a = f.next();
 		while(a.charAt(0) != 'q')
 		{
 			if(a.equals("start")) // Uruchamia cpu
-			{	
+			{
 				cpu.start();
 			}
 			else if(a.equals("stop")) // Zatrzymuje cpu
@@ -53,6 +54,7 @@ public class Main {
 			}
 			else if(a.equals("switch")) // Zmienia algorytm przydzialający zasoby
 			{
+				System.out.println("Choose: FCFS, ROT, SJF, SJFw");
 				a = f.next();
 				if(a.compareTo("FCFS") == 0) cpu.s.SetAlgorithm(new FCFS(cpu.s.processList));
 				else if(a.compareTo("ROT") == 0) cpu.s.SetAlgorithm(new Rot(cpu.s.processList));
@@ -62,7 +64,6 @@ public class Main {
 			}
 			else if(a.equals("load")) // Wczytuje generator z gotowym zestawem procesów
 			{
-				a = f.next();
 				cpu.s  = new Scheduler(new SGenerator(a));
 				cpu.s.SetAlgorithm(new FCFS(cpu.s.processList));
 			}
@@ -93,10 +94,15 @@ public class Main {
 			{
 				Rot.deltaTime = f.nextInt();
 			}
+			menu();
 			a = f.next();
 		}
-		
-		f.close();
-	}
 
+		f.close();
+		System.out.println("finish of main process");
+	}
+	public static void menu() {
+		System.out.println("choose your options");
+		System.out.println("q, start, stop, switch, load, loadgen, showlist, genconfig, rotconfig");
+	}
 }
